@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
     {
         factoryPlayer = new PlayersFactory(playerConfig);
         var player = factoryPlayer.Create(HerosType.Swordsman);
-        Instantiate(player);
+        player = factoryPlayer.Create(HerosType.Archer);
+        
     }
 
     // Update is called once per frame

@@ -1,5 +1,6 @@
 ﻿using Abstract.Factory;
 using Realized.AbstractFactory.Config;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Player
@@ -12,7 +13,11 @@ namespace Player
 
         public void SetParametrs(IModel<HerosType> model)
         {
+            
+            var sp = gameObject.AddComponent<SpriteRenderer>();
+            
             spriteRenderer = model.SpriteRenderer;
+            sp.sprite = model.SpriteRenderer.sprite;
 
         }
     }

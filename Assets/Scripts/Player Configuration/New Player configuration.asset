@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: New Player configuration
   m_EditorClassIdentifier: 
   models:
-  - spriteRenderer: {fileID: 0}
+  - spriteRenderer: {fileID: 7316967658158860510, guid: c5bc421f086f3564e9d301e25d11cf43, type: 3}
     type: 0
     health: 1
     damage: 1
     speed: 1
-  - spriteRenderer: {fileID: 0}
+  - spriteRenderer: {fileID: 2525297956166462248, guid: 57ed08ace16bc6c4cbae501d361259b9, type: 3}
     type: 1
     health: 1
     damage: 1
