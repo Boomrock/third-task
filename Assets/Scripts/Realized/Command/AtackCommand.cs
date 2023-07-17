@@ -3,18 +3,14 @@ using UnityEngine;
 
 namespace Realized.Command
 {
-    public abstract class AtackCommand:ICommand<GameObject>
+    public class AtackCommand:ICommand<GameObject>
     {
-        public AtackCommand(GameObject self)
-        {
-            
-        }
-        public GameObject Execute()
+        public GameObject Execute(GameObject obj)
         {
             throw new System.NotImplementedException();
         }
 
-        public GameObject Cancle()
+        public GameObject Cancle(GameObject obj)
         {
             throw new System.NotImplementedException();
         }

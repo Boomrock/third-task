@@ -5,14 +5,18 @@ namespace Realized.Command
 {
     public class MoveBackCommand : ICommand<GameObject>
     {
-        public GameObject Execute()
+        public GameObject Execute(GameObject obj)
         {
-            throw new System.NotImplementedException();
+            var position = obj.transform.position;
+            obj.transform.position = new Vector3( position.x - 1, position.y);
+            return obj;
         }
 
-        public GameObject Cancle()
+        public GameObject Cancle(GameObject obj)
         {
-            throw new System.NotImplementedException();
+            var position = obj.transform.position;
+            obj.transform.position = new Vector3( position.x + 1, position.y);
+            return obj;
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Abstract.Factory
     {
         [SerializeField] protected Model<T>[] models;
         protected Dictionary<T,Model<T>> dictionary;
+        protected bool IsInit;
 
         public virtual void Init()
         {
@@ -26,10 +27,11 @@ namespace Abstract.Factory
             }
         }
 
-        public IModel<T> Get(T type)
+        public Model<T> Get(T type)
         {
+            if(!IsInit) Init();
             return dictionary[type];
         }
-        
+
     }
 }

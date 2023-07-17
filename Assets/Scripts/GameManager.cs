@@ -1,32 +1,41 @@
-using System.Collections;
 using System.Collections.Generic;
+using Abstract.Command;
 using Abstract.Factory;
 using Player;
 using Realized.AbstractFactory.Config;
+using Realized.Command;
 using Realized.Factory;
 using Realized.Factory.Config;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private PlayerConfig playerConfig;
-
     private IFactory<HerosType> factoryPlayer;
-    private IFactory<Enemy> factoryEnemy ;
+    private IFactory<Enemy> factoryEnemy;
     private Hero player;
     private List<Enemy> Enemies;
-     // Start is called before the first frame update
+    private Invoker playerInvoker;
+    private PlayerManager playerManager;
+    private EnemyManager enemyManager;
+
+    // Start is called before the first frame update
     void Start()
     {
-        factoryPlayer = new PlayersFactory(playerConfig);
-        var player = factoryPlayer.Create(HerosType.Swordsman);
-        player = factoryPlayer.Create(HerosType.Archer);
-        
+        playerManager = gameObject.GetComponent<PlayerManager>();
+        enemyManager = gameObject.GetComponent<EnemyManager>();
+        playerManager.StepNotify += EnemyStep;
+        enemyManager.StepNotify += PlayerStep;
+
+        playerManager.Step();
     }
 
-    // Update is called once per frame
-    void Update()
+    void EnemyStep()
     {
-        
+        enemyManager.Step();
+    }
+
+    void PlayerStep()
+    {
+        playerManager.Step();
     }
 }

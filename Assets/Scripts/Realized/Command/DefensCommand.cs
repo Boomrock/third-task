@@ -5,12 +5,12 @@ namespace Realized.Command
 {
     public class DefensCommand : ICommand<GameObject>
     {
-        public GameObject Execute()
+        public GameObject Execute(GameObject obj)
         {
             throw new System.NotImplementedException();
         }
 
-        public GameObject Cancle()
+        public GameObject Cancle(GameObject obj)
         {
             throw new System.NotImplementedException();
         }

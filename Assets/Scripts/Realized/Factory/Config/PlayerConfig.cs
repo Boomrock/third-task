@@ -9,13 +9,14 @@ namespace Realized.Factory.Config
 {
     [CreateAssetMenu(fileName = "New Player configuration", menuName = "Player configuration", order = 51)]
     public class PlayerConfig:  ScriptableObject, 
-        IConfig<HerosType> 
+                                IConfig<HerosType> 
     {
         [SerializeField] protected Hero[] models;
         protected Dictionary<HerosType,Hero> dictionary = new Dictionary<HerosType, Hero>();
-
+        protected bool IsInit = false;
         public void Init()
         {
+            
             foreach (var model in models)
             {
                 try
@@ -28,12 +29,14 @@ namespace Realized.Factory.Config
                     Debug.LogError(e);
                 }
             }
+
+            IsInit = true;
         }
 
-        public IModel<HerosType> Get(HerosType type)
+        public Model<HerosType> Get(HerosType type)
         {
+            if(!IsInit) Init();
             return dictionary[type];
-
         }
     }
 

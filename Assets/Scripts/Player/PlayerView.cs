@@ -11,7 +11,7 @@ namespace Player
 
         public SpriteRenderer SpriteRenderer { get => spriteRenderer;}
 
-        public void SetParametrs(IModel<HerosType> model)
+        public void SetParametrs(Model<HerosType> model)
         {
             
             var sp = gameObject.AddComponent<SpriteRenderer>();
