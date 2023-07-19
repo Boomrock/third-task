@@ -53,10 +53,21 @@ public class PlayerManager : MonoBehaviour
     }
     void Update()
     {
-        stateMachine.Update();
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            stateMachine.TryTransit(State.RunOnRight);
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            stateMachine.TryTransit(State.RunOnLeft);
+        }
+        else if (Input.GetKeyDown(KeyCode.Z))
         {
             playerHistory.Undo();
+        }
+        else
+        {
+            stateMachine.TryTransit(State.IDLE);
         }
     }
     

@@ -4,7 +4,7 @@ namespace Abstract.AbstractCommand
 {
     public abstract class Command: ICommand
     {
-        public event Action CommandExecuteNotify;
+        public abstract event Action CommandExecuteNotify;
         
         private readonly IHistory history;
 
@@ -15,7 +15,6 @@ namespace Abstract.AbstractCommand
         public virtual void Execute()
         {
             history.ReadDown(this);
-            CommandExecuteNotify?.Invoke();
         }
 
         public abstract void Cancle();
